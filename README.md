@@ -41,7 +41,7 @@ If you discover any security related issues, please email caominhduc31081@gmail.
 
 ## Credits
 
-- [Cao Minh Duc](https://github.com/CaoMinhDuc)
+- [Cao Minh Duc](https://github.com/cao-minh-duc)
 - [All Contributors](../../contributors)
 
 ## License

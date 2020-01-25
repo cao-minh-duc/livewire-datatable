@@ -21,7 +21,9 @@ class EloquentAdapter implements AdapterInterface
             return $model->all();
         }
 
-        return $model->paginate($this->getPaginator()->getPerPage());
+        $collection = $model->paginate($this->getPaginator()->getPerPage());
+
+        return $collection;
 
         
     }

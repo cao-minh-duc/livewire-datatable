@@ -1,5 +1,5 @@
 <div>
-    <table class="table-auto">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 @foreach($columns as $column)
@@ -17,7 +17,7 @@
                 @include('livewire-datatable::record-row', [
                     'record' => $record,
                     'columns' => $columns
-                ]))
+                ])
             @endforeach
         </tbody>
     </table>

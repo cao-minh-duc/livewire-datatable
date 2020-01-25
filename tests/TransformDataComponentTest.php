@@ -46,7 +46,7 @@ class TransformDataComponentTest extends TestCase
 
         $this->assertEquals(
             'FOO',
-            $column->transform('foo',[])
+            $column->transform_name('foo',[])
         );
     }
 

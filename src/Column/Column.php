@@ -34,7 +34,7 @@ class Column
         )
         {
             self::macro(
-                'transform',
+                'transform_'.$this->name,
                 $attributes['transform']
             );
         }

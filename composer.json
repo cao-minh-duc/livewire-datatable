@@ -1,0 +1,54 @@
+{
+    "name": "cao-minh-duc/livewire-datatable",
+    "description": "",
+    "keywords": [
+        "cao-minh-duc",
+        "livewire-datatable"
+    ],
+    "homepage": "https://github.com/cao-minh-duc/livewire-datatable",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Cao Minh Duc",
+            "email": "caominhduc31081@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "livewire/livewire": "^0.7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CaoMinhDuc\\LivewireDatatable\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CaoMinhDuc\\LivewireDatatable\\Tests\\": "tests",
+            "Livewire\\": "vendor/livewire/src"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CaoMinhDuc\\LivewireDatatable\\LivewireDatatableServiceProvider"
+            ],
+            "aliases": {
+                "LivewireDatatable": "CaoMinhDuc\\LivewireDatatable\\LivewireDatatableFacade"
+            }
+        }
+    }
+}

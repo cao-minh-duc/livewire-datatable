@@ -4,7 +4,6 @@ namespace CaoMinhDuc\LivewireDatatable\Column;
 use Illuminate\Support\Traits\Macroable;
 class Column
 {
-    use Macroable;
 
     /** @var string */
     public $name;
@@ -27,16 +26,5 @@ class Column
         $this->searchable = $attributes['searchable'] ?? true;
         $this->orderable = $attributes['orderable'] ?? true;
         $this->transform = $attributes['transform'] ?? NULL;
-
-        if(
-            isset($attributes['transform'])
-            && is_callable($attributes['transform'])
-        )
-        {
-            self::macro(
-                'transform_'.$this->name,
-                $attributes['transform']
-            );
-        }
     }
 }

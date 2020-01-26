@@ -21,13 +21,13 @@ abstract class DatatableComponent extends Component
                 
             foreach($columns as $column)
             {
-                $methodTranform = 'transform_'.$column->name;
 
-                if(!$column->hasMacro($methodTranform))
+                $record->{$column->name} = $record->{$column->data};
+                if(is_null($column->transform))
                 {
                     continue;
                 }
-                $record->{$column->data} = $column->{$methodTranform}($record->{$column->data},$record);
+                $record->{$column->name} = ($column->transform)($record->{$column->name},$record);
             }
 
             return $record;

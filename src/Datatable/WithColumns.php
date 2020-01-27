@@ -2,22 +2,23 @@
 namespace CaoMinhDuc\LivewireDatatable\Datatable;
 
 use CaoMinhDuc\LivewireDatatable\Column\Column;
+use CaoMinhDuc\LivewireDatatable\Column\ColumnsFactory;
 
 
 trait WithColumns
 {
+    protected function columns()
+    {
+        return [];
+    }
+
     public function getColumnsProperty()
     {
         //factory columns
-        $columns = array_map(function($columnAttributes){
-            
-            $column = new Column($columnAttributes);
-            if(isset($columnAttributes['transform']))
-            {
-                // dd(null === $column->transform);
-            }
-            return $column;
-        },$this->columns());
-        return collect($columns ?? []);
+        $columns = app(ColumnsFactory::class)->concrete(
+            $this->columns()
+        );
+
+        return $columns;
     }
 }

@@ -15,8 +15,14 @@ abstract class DatatableComponent extends Component
     {   
         $columns = $this->getColumnsProperty();
         $collection = $this->getCollectionProperty();
-        $is_pagination = $collection instanceof \Illuminate\Pagination\LengthAwarePaginator;
+        $is_pagination = $this->isPagination($collection);
+        $collection = $this->transformCollection($collection,$columns);
 
+        return view('livewire-datatable::datatable',compact('columns','collection','is_pagination'));
+    }
+
+    protected function transformCollection($collection,$columns)
+    {
         $recordTranform = function($record) use ($columns){
                 
             foreach($columns as $column)
@@ -33,12 +39,18 @@ abstract class DatatableComponent extends Component
             return $record;
         };
 
-        if($is_pagination)
+        if($this->isPagination($collection))
         {
             $collection->getCollection()->transform($recordTranform);
         }else{
             $collection->transform($recordTranform);
         }
-        return view('livewire-datatable::datatable',compact('columns','collection','is_pagination'));
+
+        return $collection;
+    }
+
+    protected function isPagination($collection)
+    {
+        return $collection instanceof \Illuminate\Pagination\LengthAwarePaginator;
     }
 }

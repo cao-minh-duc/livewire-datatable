@@ -1,6 +1,8 @@
 <?php
 namespace CaoMinhDuc\LivewireDatatable\Collection;
 
+use Spatie\QueryBuilder\QueryBuilder;
+
 class EloquentAdapter implements AdapterInterface
 {
     use WithPaginator,WithState;
@@ -15,13 +17,15 @@ class EloquentAdapter implements AdapterInterface
 
     public function getCollection()
     {
-        $model = $this->getModel();
+        $query = $this->getModel()->query();
+
+        $queryBuilder = QueryBuilder::for($query);
         if($this->getPaginator()->isDisabled())
         {
-            return $model->all();
+            return $queryBuilder->get();
         }
 
-        $collection = $model->paginate($this->getPaginator()->getPerPage());
+        $collection = $queryBuilder->paginate($this->getPaginator()->getPerPage());
 
         return $collection;
 

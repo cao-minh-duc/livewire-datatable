@@ -25,7 +25,7 @@ trait WithCollection
 
     public function turnOffPagination()
     {
-        $this->paginator['enable'] = false;
+        $this->paginator_config['enable'] = false;
     }
 
     public $state = [];

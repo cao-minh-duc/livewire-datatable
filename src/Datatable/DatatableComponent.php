@@ -11,6 +11,8 @@ abstract class DatatableComponent extends Component
         WithColumns,
         WithPagination;
 
+    protected $updatesQueryString = ['include','filter','sort','fields','append'];
+
     public function render()
     {   
         $columns = $this->getColumnsProperty();

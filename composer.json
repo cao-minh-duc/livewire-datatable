@@ -16,7 +16,8 @@
         }
     ],
     "require": {
-        "livewire/livewire": "^0.7.0"
+        "livewire/livewire": "*",
+        "spatie/laravel-query-builder": "^2.5"
     },
     "require-dev": {
         "orchestra/testbench": "*",

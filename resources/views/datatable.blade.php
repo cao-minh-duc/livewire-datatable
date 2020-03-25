@@ -1,4 +1,11 @@
 <div>
+    <div class="form-group">
+        <select name="status" wire:model="filter.status">
+            <option value=""></option>
+            <option value="blank">Blank</option>
+            <option value="finish">Finish</option>
+        </select>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>

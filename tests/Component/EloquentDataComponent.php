@@ -14,7 +14,7 @@ class EloquentDataComponent extends DatatableComponent
     public function adapterConfig()
     {
         return [
-            'model' => new TestEloquent
+            'model' => TestEloquent::whereNotNull('code')
         ];
     }
 
